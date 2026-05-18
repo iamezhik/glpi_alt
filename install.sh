@@ -29,16 +29,17 @@ echo ">>> Создание 10-base.cfg..."
 cat > /etc/glpi-agent/conf.d/10-base.cfg <<'EOF'
 # Добавление сканирование профилей пользователей, а не только общие настройки ПК
 # Особенно полезно в контексте установленного ПО на машинах с Windows
+scan-homedirs = 1
 scan-profiles = 1
 backend-collect-timeout = 300
 # С какого сервера или подсети принимать запросы на управление агентом
-httpd-trust = 10.50.64.0/22
+httpd-trust = 10.50.100.0/24
 # Задержка перед первым запуском (в секундах)
 delaytime = 3600
 # Не будить сервер раньше времени
 lazy = 1
 # Использовать FQDN имя ПК для записи в базу. 1 - использование "короткого" имени из hostname
-assetname-support = 2
+assetname-support = 1
 # Пишем логи в отдельный файл
 logger = file
 logfile = /var/log/glpi-agent.log
